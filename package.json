@@ -26,6 +26,7 @@
     "recharts": "^2.7.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-persist": "^6.0.0",
+    "serve": "^14.2.0",
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
