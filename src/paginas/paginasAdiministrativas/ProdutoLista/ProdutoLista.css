@@ -1,0 +1,57 @@
+.productList{
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    
+    padding-left: 85px; /* Adicione o valor de espaçamento à esquerda desejado */
+    margin-top: 20px; /* Ajuste o valor negativo conforme necessário */
+}
+
+.productListItem{
+    
+    display: flex;
+    align-items: center;
+    
+}
+
+.productListImg {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+.productListEdit{
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #3bb077;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.productListDelete{
+    color: red;
+    cursor: pointer;
+}
+.botaocadastro {
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    width: 90px;
+    height: 50vh;
+    padding-left: 70px; /* Adicione o valor de espaçamento à esquerda desejado */
+}
+.linkPersonalizado {
+    color:rgb(1, 0, 10);
+    font-size: large;
+    text-decoration: none; /* Remove o sublinhado */
+  }
+  
+  .linkPersonalizado:hover {
+    font-size: 1.2em; /* Aumenta o tamanho do texto ao passar o mouse */
+  }
