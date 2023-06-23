@@ -10,6 +10,7 @@ import { saberSeEadm } from '../services/saberSeEadm';
 import AlguemLogado from '../services/AlguemLogado';
 import SaberSeEAdm from '../services/SaberSeEAdm';
 
+
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -25,7 +26,7 @@ const Wrapper = styled.div`
     ${mobile({ padding : "10px 0px"})}
 `;
 const Esquerda = styled.div`
-    flex: 1;
+    width: 33.3%;
     display: flex;
     align-items: center;
     `;
@@ -35,20 +36,18 @@ const Linguagem = styled.span`
     ${mobile({ display : "none"})}
     `;
 const Procura = styled.div`
-    border: 0.5px solid lightgray;
-    display: flex;
-    align-items: center;
+    width: 50vh;
     margin-left: 25px;
     padding: 5px;
     `;
 const Input = styled.input`
     border: none;
-    flex: 8;
+    flex: 1;
     padding-left: 20px;
     outline: none;
     `;
 const InputContainer = styled.div`
-    width: 80%;
+    width: 500px;
     height: 40px;
     background-color: white;
     display: flex;
@@ -57,9 +56,21 @@ const InputContainer = styled.div`
 
     border: 2px solid black;
 `;
+const Icone = styled.div`
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #1d1c1c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 460px;
+    font-size: 40;
+`;
 const Centro = styled.div`
     display: flex;
-    flex: 1;
+    width: 33.3vh;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -68,7 +79,7 @@ const Logo = styled.h1`
     font-weight: bold;
     `;
 const Direita = styled.div`
-    flex: 1;
+    width: 33.3%;
     flex-direction: row;
     display: flex;
     text-align: center;
@@ -82,6 +93,7 @@ const ItemMenu = styled.div`
     `;
 
 const NavBar = () => {
+    
     const irPara = useNavigate(); 
     const quantidade = useSelector(state => state.carrinho.quantidade);
     const [searchQuery, setSearchQuery] = useState("");
@@ -100,22 +112,23 @@ const NavBar = () => {
     
     const oQueFazerNaBarraDeNagevacao = () => {
         if(AlguemLogado()){
-            return( <Container>
+            return(<Container>
                         <Wrapper>
-                            <Esquerda>
-                                
-                            <Logo>Sua Logomarca aqui!</Logo>
+                           <Esquerda>
+                           <Logo>Sua Logomarca aqui!</Logo>
                             </Esquerda>
                             <Centro>
-                            <Procura>
-                                <InputContainer>
-                                <Input placeholder="Procurar" 
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}/>
-                                    <Search style={{color:"black", fontSize:40}}/>
+                                <Procura>
+                                    <InputContainer>
+                                        <Input placeholder="Procurar" 
+                                            value={searchQuery}
+                                            onChange={(e) => setSearchQuery(e.target.value)}/>
+                                 
                                     </InputContainer>
                                 </Procura>
-                                
+                                <Icone>
+                                    <Search />
+                                </Icone>
                             </Centro>
                             <Direita>
                                 <ItemMenu>
@@ -125,33 +138,30 @@ const NavBar = () => {
                                          </Badge>
                                     </Link>
                                 </ItemMenu>
-                                <ItemMenu>
+                                <div >
                                     <DropDownMui nomeDeUsuario={nomeDeUsuario} usuarioAdm={eAdm} />
-                                </ItemMenu> 
+                                </div> 
                             </Direita>
                         </Wrapper> 
-                    </Container>
-
-                )
+                    </Container>)
             }else{
     return(<Container>
                 <Wrapper>
                     <Esquerda>
-                    <Logo>Sua Logomarca aqui!</Logo>
-                            
-                    </Esquerda>
+                        <Logo>Sua Logomarca aqui!</Logo>                            
+                </Esquerda>
                     <Centro>
-                    
-                        <InputContainer>
-                            <Input placeholder="Procurar" 
-                                   value={searchQuery}
-                                   onChange={(e) => setSearchQuery(e.target.value)}/>
-                            
-                            </InputContainer>
-                            <Search style={{color:"gray", fontSize:16}}/>
-                            
-                            
-                    </Centro>
+                        <Procura>
+                            <InputContainer>
+                                <Input placeholder="Procurar" 
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}/>              
+                                </InputContainer>
+                        </Procura>
+                            <Icone>
+                                <Search />
+                            </Icone>
+                        </Centro>
                     <Direita>
                         <ItemMenu>
                             <Link to="/login">

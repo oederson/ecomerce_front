@@ -36,7 +36,7 @@ export default function DropDownMui(props) {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <Avatar sx={{ width: 32, height: 32 }} >M</Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -46,7 +46,7 @@ export default function DropDownMui(props) {
         open={open}
         onClose={handleClose}
         onClick={handleClose}
-        PaperProps={{
+        slotProps ={{
           elevation: 0,
           sx: {
             overflow: 'visible',
