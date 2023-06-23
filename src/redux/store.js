@@ -31,8 +31,7 @@ export const store = configureStore ({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-      devTools: false,
-    }),
+      }),
 });
 
 export const persistor = persistStore(store);
