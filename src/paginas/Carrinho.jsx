@@ -5,6 +5,7 @@ import { Add, Remove } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
 import Divider from '@mui/material/Divider';
 import { limparCarrinhoo , removerProduto, aumentarQuantidade, diminuirQuantidade } from '../redux/carrinhoRedux'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
 
@@ -123,9 +124,19 @@ const ResumoItemPreco = styled.span`
 const ResumoBotao = styled.button`
     width: 100%;
     padding: 10px;
-    background-color: black;
+    background-color: teal;
     color: white;
     font-weight: 600;
+    cursor: pointer;
+`;
+const ResumoBotaolimpar = styled.button`
+    margin-top: 170px;
+    width: 100%;
+    padding: 10px;
+    background-color: #424141;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
 `;
 
 const Carrinho = () => { 
@@ -157,7 +168,9 @@ const Carrinho = () => {
         <Wrapper>
             <Titulo>Sua sacola</Titulo>
             <Topo>
+                <Link to="/"> 
                 <TopoBotao>Continue comprando</TopoBotao>
+                </Link>
                 <TopoTextos>
                     <TopoTexto>Sacola de compras (2)</TopoTexto>
                     <TopoTexto>Sua lista de desejos (0)</TopoTexto>
@@ -207,9 +220,10 @@ const Carrinho = () => {
                         <ResumoItemTexto>Total</ResumoItemTexto>
                         <ResumoItemPreco>R$ {carrinho.total}</ResumoItemPreco>
                     </ResumoItem>
-                    <ResumoBotao>Pagar agora</ResumoBotao>
+                    <ResumoBotao>Comprar agora</ResumoBotao>
+                    <ResumoBotaolimpar onClick={() => {limparCarrinho()}}>Limpar carrinho</ResumoBotaolimpar>
                 </Resumo>
-                <button onClick={() => {limparCarrinho()}}>Aqui</button> 
+                
             </EmBaixo>
         </Wrapper>
         <Rodape/>

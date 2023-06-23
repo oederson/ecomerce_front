@@ -67,7 +67,6 @@ const Produto = ({ produto }) => {
     const quantidade = 1;
     const dispatch = useDispatch();
     const handleClick = () =>{
-        console.log(produto)
         dispatch(adicionarProduto({ ...produto, quantidade }));
     }
 
