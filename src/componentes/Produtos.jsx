@@ -28,12 +28,12 @@ const Produtos = ({categoria, filtros, sortProdutos, produtosNome}) => {
   const [produtosFiltrados, setProdutosFiltrados] = useState([]);
   const [nomeFiltro, setNomeFiltro] = useState("")
   const produtosPorNome = produtos.filter((produto) => produto.titulo.toLowerCase().includes(produtosNome));
-
+  console.log(produtos)
   useEffect(()=>{
     const getProdutos = async ()=>{
       try{
         const res = await ChamadaApi().get(categoria ? `/produto/categoria/${categoria}`: `/produto/publico`);
-        setProdutos(res.data.content)
+        setProdutos(res.data)
       }catch(err){}
     };
     getProdutos()

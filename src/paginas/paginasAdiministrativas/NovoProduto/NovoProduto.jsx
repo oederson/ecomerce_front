@@ -55,6 +55,7 @@ const ParteCheckBox = styled.div`
 `;
 
 const NovoProduto = () => {
+  
   const token = PegaToken()
   const { id } = useParams();
   const irPara = useNavigate();
@@ -91,6 +92,7 @@ const NovoProduto = () => {
     };
     reader.readAsDataURL(file);
   };
+
 
   const handleSubmit = async(e) => {
     e.preventDefault();
