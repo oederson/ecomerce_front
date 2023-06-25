@@ -6,10 +6,12 @@ import ChamadaApi from "../services/metodoRequest.jsx";
 
 const Container =styled.div`
     padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
 `;
 const ImageWrapper = styled.div`
   flex: 1 0 50%;
@@ -28,7 +30,7 @@ const Produtos = ({categoria, filtros, sortProdutos, produtosNome}) => {
   const [produtosFiltrados, setProdutosFiltrados] = useState([]);
   const [nomeFiltro, setNomeFiltro] = useState("")
   const produtosPorNome = produtos.filter((produto) => produto.titulo.toLowerCase().includes(produtosNome));
-  console.log(produtos)
+  
   useEffect(()=>{
     const getProdutos = async ()=>{
       try{

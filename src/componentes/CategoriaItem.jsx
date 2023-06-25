@@ -23,11 +23,11 @@ const Info = styled.div`
     align-items: center;
     justify-content: center;
 `;
-const Titulo = styled.h1`
-    color: #ece6e6;
+const Titulo = styled.h2`
+    color: teal;
     margin-bottom: 20px;
     font-weight: bold;
-    text-shadow: 2px 2px 0px #000000;
+ //   text-shadow: 2px 2px 0px #000000;
 
 `;
 const Botao = styled.button`
@@ -43,7 +43,7 @@ const CategoriaItem = ({item}) => {
   return (
     <Container>
         <Link to={`/produtos/categoria/${item.categoria}`}>
-            <Image src={item.img}/>
+           
             <Info key={item.id}>
                 <Titulo>{item.titulo}</Titulo>
                 
