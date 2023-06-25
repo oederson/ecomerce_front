@@ -98,7 +98,7 @@ const NovoProduto = () => {
     e.preventDefault();
     if(id){
       try{
-        await ChamadaApi(token).put(`/produto`, produto);
+        await ChamadaApi(token).put(`/produto/${id}`, produto);
         irPara("/adm/produtos")
         setProduto({
         titulo: "",
