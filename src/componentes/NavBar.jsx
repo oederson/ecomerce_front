@@ -87,7 +87,6 @@ const Direita = styled.div`
     justify-content: flex-end;
     `;
 const ItemMenu = styled.div`
-    font-color : teal;
     font-size: 14px;
     cursor: pointer;
     margin-left: 25px;

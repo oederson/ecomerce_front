@@ -12,7 +12,7 @@ import {
     REGISTER,
   } from 'redux-persist'
   import storage from 'redux-persist/lib/storage'
-import produtosRedux from "./produtosRedux";
+
   
 
   const persistConfig = {
@@ -21,7 +21,7 @@ import produtosRedux from "./produtosRedux";
     storage,
   }
 
-  const rootReducer = combineReducers({user:usuarioReducer, carrinho:carrinhoReducer, produtos:produtosRedux})
+  const rootReducer = combineReducers({user:usuarioReducer, carrinho:carrinhoReducer})
 
   const persistedReducer = persistReducer(persistConfig, rootReducer)
 
