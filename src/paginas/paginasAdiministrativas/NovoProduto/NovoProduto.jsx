@@ -3,6 +3,8 @@ import styled from "styled-components"
 import { useNavigate, useParams } from "react-router-dom";
 import ChamadaApi from "../../../services/metodoRequest.jsx";
 import PegaToken from "../../../services/PegaToken";
+import axios from "axios";
+
 
 
 const Container = styled.div`
@@ -55,8 +57,10 @@ const ParteCheckBox = styled.div`
 `;
 
 const NovoProduto = () => {
-  
-  const token = PegaToken()
+  const [imageSelected, setImageSelected] = useState("")
+  const [formData, setFormData] = useState(null);
+  const [urlpage, setUrlPage] = useState("");
+  const token = PegaToken();
   const { id } = useParams();
   const irPara = useNavigate();
   const [produto, setProduto] = useState({
@@ -86,13 +90,13 @@ const NovoProduto = () => {
  
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setProduto((prevState) => ({ ...prevState, imagem: reader.result }));
-    };
-    reader.readAsDataURL(file);
+    const newFormData = new FormData();
+    newFormData.append('file', file);
+    newFormData.append('upload_preset', 'p2xppgif');
+    setFormData(newFormData);
   };
-
+  
+  
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -111,22 +115,33 @@ const NovoProduto = () => {
       });}catch(error){
   
       }
-    }else{
-      try{
-        await ChamadaApi(token).post("/produto", produto);
-        irPara("/adm/produtos")
-        setProduto({
-          titulo: "",
-          descricao: "",
-          imagem: "",
-          categoria:[],
-          tamanho: [],
-          color: [],
-          preco: "",
-    });}catch(error){
+    } else {
+      try {
+        
+        await ChamadaApi(token).post('/produto', produto);
+        irPara('/adm/produtos');
 
-    }}
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  
   };
+
+    const uploadImage = async () => {
+      try {
+        axios.post("https://api.cloudinary.com/v1_1/dsqvsavze/image/upload", formData).then((response) => setProduto((prevState)=>({ ... prevState,imagem: response.data.url})) )
+        console.log(produto);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+
+  useEffect(() => {
+    console.log(produto.imagem);
+    console.log(produto)
+  }, [produto.imagem]);
   useEffect(() => {
     const fetchProduto = async () => {
       if (id) {
@@ -142,6 +157,7 @@ const NovoProduto = () => {
   
     fetchProduto();
   }, [id]);
+
 
   return (
     
@@ -336,12 +352,15 @@ const NovoProduto = () => {
           />
 
 
-        {id?<div>
+        
+        {id? <Botao type="submit">Atualizar</Botao> : <Botao type="submit">Cadastrar</Botao>}
+      </Formulario>
+      {id?<div>
           <label className="label">Imagem:</label>
           <Input
             type="file"
             name="imagem"
-            onChange={handleImageChange}
+            onChange={handleImageChange }
           />
           {produto.imagem && (
             <img src={produto.imagem} alt="Produto" style={{ width: "200px", height: "200px" }} />
@@ -352,15 +371,14 @@ const NovoProduto = () => {
             type="file"
             name="imagem"
             
-            onChange={handleImageChange}
+            onChange={handleImageChange }
             required
           />
           {produto.imagem && (
             <img src={produto.imagem} alt="Produto" style={{ width: "200px", height: "200px" }} />
           )}
         </div> }
-        {id? <Botao type="submit">Atualizar</Botao> : <Botao type="submit">Cadastrar</Botao>}
-      </Formulario>
+        <button onClick={uploadImage}> Upload cloudnary teste</button>
       </Wrapper>
     </Container>
   );

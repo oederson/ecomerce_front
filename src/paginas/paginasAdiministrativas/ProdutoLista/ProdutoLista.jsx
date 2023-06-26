@@ -78,7 +78,7 @@ export default function ProdutoListaAdm () {
     const getProdutos = async () =>{
       try{
       const res = await ChamadaApi(token).get("/produto")
-      setData(res.data)
+      setData(res.data.content)
       }catch (error){
         console.error(error)
       }

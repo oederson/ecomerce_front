@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import Slider from '../componentes/Slider'
 import Categorias from '../componentes/Categorias'
 import Produtos from '../componentes/Produtos'
 import Newsletter from '../componentes/Newsletter'
 import Rodape from '../componentes/Rodape'
 
+
 const Home = () => {
-  
-  return (
+    
+ return (
     <div>
         <Categorias/>
         <Slider/>

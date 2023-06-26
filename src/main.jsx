@@ -18,7 +18,6 @@ import UsuarioLista from './paginas/paginasAdiministrativas/Usuarios/UsuariosLis
 import AlguemLogado from './services/AlguemLogado.jsx';
 import SaberSeEAdm from './services/SaberSeEAdm.jsx';
 
-
 const Main = () => {
   
   const acessoRestrito = (pagina) =>{ 
@@ -87,7 +86,7 @@ const Main = () => {
         {
           path: '/adm/usuario',
           element: acessoRestrito(<UsuarioLista />),
-        }
+        },
       ],
     },
   ]);

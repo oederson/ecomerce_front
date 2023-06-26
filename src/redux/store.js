@@ -12,6 +12,7 @@ import {
     REGISTER,
   } from 'redux-persist'
   import storage from 'redux-persist/lib/storage'
+import produtosRedux from "./produtosRedux";
   
 
   const persistConfig = {
@@ -20,7 +21,7 @@ import {
     storage,
   }
 
-  const rootReducer = combineReducers({user:usuarioReducer, carrinho:carrinhoReducer})
+  const rootReducer = combineReducers({user:usuarioReducer, carrinho:carrinhoReducer, produtos:produtosRedux})
 
   const persistedReducer = persistReducer(persistConfig, rootReducer)
 
@@ -32,7 +33,7 @@ export const store = configureStore ({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
       }),
-      devTools:false,
+      devTools:true,
 });
 
 export const persistor = persistStore(store);

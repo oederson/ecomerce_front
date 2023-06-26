@@ -61,7 +61,7 @@ const Icone = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    color: #1d1c1c;
+    color: teal;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,10 +87,12 @@ const Direita = styled.div`
     justify-content: flex-end;
     `;
 const ItemMenu = styled.div`
+    font-color : teal;
     font-size: 14px;
     cursor: pointer;
     margin-left: 25px;
     `;
+
 
 const NavBar = () => {
     
@@ -115,8 +117,8 @@ const NavBar = () => {
             return(<Container>
                         <Wrapper>
                            <Esquerda>
-                           <Logo>Sua Logomarca aqui!</Logo>
-                            </Esquerda>
+                             <Logo>Sua Logomarca aqui!</Logo>
+                           </Esquerda>
                             <Centro>
                                 <Procura>
                                     <InputContainer>
@@ -174,7 +176,7 @@ const NavBar = () => {
                                 </Link>
                             </ItemMenu>
                         <ItemMenu>
-                            <Link to="/carrinho">
+                            <Link to="/carrinho" color='teal'>
                                 <Badge badgeContent={quantidade} color="primary">
                                     <ShoppingCartOutlined/>
                                 </Badge>

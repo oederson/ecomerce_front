@@ -12,6 +12,7 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { Link } from 'react-router-dom';
 import { Home } from '@mui/icons-material';
+import { teal } from '@mui/material/colors';
 
 export default function DropDownMui(props) {
   
@@ -36,7 +37,7 @@ export default function DropDownMui(props) {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }} >M</Avatar>
+            <Avatar sx={{ width: 32, height: 32, backgroundColor: teal}} >M</Avatar>
           </IconButton>
         </Tooltip>
       </Box>

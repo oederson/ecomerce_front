@@ -35,7 +35,7 @@ const Produtos = ({categoria, filtros, sortProdutos, produtosNome}) => {
     const getProdutos = async ()=>{
       try{
         const res = await ChamadaApi().get(categoria ? `/produto/categoria/${categoria}`: `/produto/publico`);
-        setProdutos(res.data)
+        setProdutos(res.data.content)
       }catch(err){}
     };
     getProdutos()
