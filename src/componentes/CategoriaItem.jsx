@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components"
 
 const Container = styled.div`
+    display:flex;
     flex: 1;
     margin: 0px;
     height: 40px;
     position: relative;
+    justify-content: center;
 `;
 const Image = styled.img`
     width: 100%;
@@ -42,12 +44,12 @@ const Botao = styled.button`
 const CategoriaItem = ({item}) => {
   return (
     <Container>
-        <Link to={`/produtos/categoria/${item.categoria}`}>
+        <Link to={`/produtos/categoria/${item.categoria}`} style={{ textDecoration: 'none' }}>
            
-            <Info key={item.id}>
+            
                 <Titulo>{item.titulo}</Titulo>
                 
-            </Info>
+            
         </Link>
     </Container>
   )

@@ -54,7 +54,7 @@ const InputContainer = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    border: 2px solid black;
+    border: 2px solid teal;
 `;
 const Icone = styled.div`
     position: absolute;
@@ -91,7 +91,13 @@ const ItemMenu = styled.div`
     cursor: pointer;
     margin-left: 25px;
     `;
+const Titulo = styled.h3`
+color: teal;
 
+font-weight: bold;
+   text-shadow: 0.5px 1px 0.5px #014d1a;
+
+`;
 
 const NavBar = () => {
     
@@ -121,7 +127,7 @@ const NavBar = () => {
                             <Centro>
                                 <Procura>
                                     <InputContainer>
-                                        <Input placeholder="Procurar" 
+                                        <Input placeholder="O que esta procurando ?" 
                                             value={searchQuery}
                                             onChange={(e) => setSearchQuery(e.target.value)}/>
                                  
@@ -133,9 +139,9 @@ const NavBar = () => {
                             </Centro>
                             <Direita>
                                 <ItemMenu>
-                                    <Link to="/carrinho">
+                                    <Link to="/carrinho" style={{ textDecoration: 'none' }}>
                                          <Badge badgeContent={quantidade} color="primary">
-                                         <ShoppingCartOutlined/>
+                                         <ShoppingCartOutlined style={{ color: 'teal' }} />
                                          </Badge>
                                     </Link>
                                 </ItemMenu>
@@ -154,7 +160,7 @@ const NavBar = () => {
                     <Centro>
                         <Procura>
                             <InputContainer>
-                                <Input placeholder="Procurar" 
+                                <Input placeholder="O que esta procurando ?" 
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}/>              
                                 </InputContainer>
@@ -165,19 +171,19 @@ const NavBar = () => {
                         </Centro>
                     <Direita>
                         <ItemMenu>
-                            <Link to="/login">
-                                Login
+                            <Link to="/login" style={{ textDecoration: 'none' }}>
+                               <Titulo> Login </Titulo> 
                             </Link>
                         </ItemMenu>
                         <ItemMenu>
-                            <Link to="/cadastrar">
-                                Cadastrar
+                            <Link to="/cadastrar" style={{ textDecoration: 'none' }}>
+                            <Titulo>  Cadastrar </Titulo>
                                 </Link>
                             </ItemMenu>
                         <ItemMenu>
-                            <Link to="/carrinho" color='teal'>
+                            <Link to="/carrinho" style={{ textDecoration: 'none' }}>
                                 <Badge badgeContent={quantidade} color="primary">
-                                    <ShoppingCartOutlined/>
+                                    <ShoppingCartOutlined style={{ color: 'teal' }} />
                                 </Badge>
                             </Link>
                         </ItemMenu>

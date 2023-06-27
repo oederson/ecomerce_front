@@ -41,5 +41,24 @@ export const categorias = [
     titulo: "Jaquetas",
     categoria:"jeans"
 },
+{
+    id: 4,
+    img:"/jaqueta.jpg ",
+    titulo: "categoria01",
+    categoria:"categoria01"
+},
+{
+    id: 5,
+    img:"/jaqueta.jpg ",
+    titulo: "categoria02",
+    categoria:"categoria02"
+},
+{
+    id: 6,
+    img:"/jaqueta.jpg ",
+    titulo: "categoria03",
+    categoria:"categoria03"
+}
+
 
 ]

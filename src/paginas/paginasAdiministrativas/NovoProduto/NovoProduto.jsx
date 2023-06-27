@@ -57,9 +57,8 @@ const ParteCheckBox = styled.div`
 `;
 
 const NovoProduto = () => {
-  const [imageSelected, setImageSelected] = useState("")
+  
   const [formData, setFormData] = useState(null);
-  const [urlpage, setUrlPage] = useState("");
   const token = PegaToken();
   const { id } = useParams();
   const irPara = useNavigate();
@@ -96,8 +95,6 @@ const NovoProduto = () => {
     setFormData(newFormData);
   };
   
-  
-
   const handleSubmit = async(e) => {
     e.preventDefault();
     if(id){
@@ -130,37 +127,30 @@ const NovoProduto = () => {
 
     const uploadImage = async () => {
       try {
-        axios.post("https://api.cloudinary.com/v1_1/dsqvsavze/image/upload", formData).then((response) => setProduto((prevState)=>({ ... prevState,imagem: response.data.url})) )
-        console.log(produto);
+        const res = axios.post(
+          "https://api.cloudinary.com/v1_1/dsqvsavze/image/upload", formData)
+          .then((response) => setProduto(
+            (prevState)=>({ ... prevState,imagem: response.data.secure_url})))
       } catch (error) {
         console.error(error);
       }
     };
-
-
-  useEffect(() => {
-    console.log(produto.imagem);
-    console.log(produto)
-  }, [produto.imagem]);
-  useEffect(() => {
-    const fetchProduto = async () => {
-      if (id) {
-        try {
-          const response = await ChamadaApi(token).get(`produto/id/${id}`);
-          const data = response.data;
-          setProduto(data);
-        } catch (error) {
+      
+    useEffect(() => {
+      const fetchProduto = async () => {
+        if (id) {
+          try {
+            const response = await ChamadaApi(token).get(`produto/id/${id}`);
+            const data = response.data;
+            setProduto(data);
+        }catch(error){
           console.error(error);
         }
       }
-    };
-  
-    fetchProduto();
+    };fetchProduto();
   }, [id]);
 
-
   return (
-    
     <Container className="containers">
       <Wrapper>
 

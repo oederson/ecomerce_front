@@ -5,9 +5,9 @@ import ChamadaApi from "../services/metodoRequest.jsx";
 
 
 const Container =styled.div`
-    padding: 20px;
+    padding: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     
     justify-content: space-between;
     align-items: center;

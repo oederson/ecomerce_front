@@ -5,11 +5,15 @@ import { sliderItems } from '../dados';
 
 
 const Container = styled.div`
-    width: 100%;
-    height: 55vh;
+    width: 100vw;
+    height: 40vh;
     display: flex;
     position: relative;
     overflow: hidden;
+    
+    background-image: linear-gradient(45deg, #1976d2, #3bb077);
+    background-size: 500% 100%;
+    animation: primeira-div 2s  infinite alternate ;
 `;
 const Arrow = styled.div`
     width: 50px;
@@ -37,7 +41,7 @@ const Wrapper = styled.div`
 `;
 const Slide = styled.div`
     width: 100vw;
-    height: 70vh;
+    height: 40vh;
     display: flex;
     align-items: center;
     background-color: #${props => props.bg};
@@ -47,11 +51,12 @@ const ImgContainer = styled.div`
     flex: 1;
 `;
 const Image = styled.img`
-    height:80%;
+    width: 100vh;
+    height:40vh;
 `;
 const InfoContainer = styled.div`
     flex: 1;
-    padding: 50px;
+    padding: 90px;
 `;
 const Titulo = styled.h1`
     font-size: 70px;
