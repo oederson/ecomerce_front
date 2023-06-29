@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://192.168.0.120:8080/',
+        target: 'https://backend-production-2fa9.up.railway.app/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
