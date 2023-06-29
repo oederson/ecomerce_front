@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components"
 import { useNavigate, useParams } from "react-router-dom";
-import ChamadaApi from "../../../services/metodoRequest.jsx";
+import ChamadaApi from "../../../services/metodoRequest.js";
 import PegaToken from "../../../services/PegaToken";
 import axios from "axios";
 

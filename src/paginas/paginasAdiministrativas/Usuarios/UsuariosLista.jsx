@@ -4,7 +4,7 @@ import { DeleteOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import ChamadaApi from "../../../services/metodoRequest.jsx";
+import ChamadaApi from "../../../services/metodoRequest.js";
 import PegaToken from "../../../services/PegaToken";
 
 const Botao = styled.button`

@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
 import { loginApi } from "../redux/apiChamada";
 import { useDispatch } from "react-redux";
-import ChamadaApi from "../services/metodoRequest.jsx";
+import ChamadaApi from "../services/metodoRequest.js";
 
 
 

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import Produto  from "./Produto";
 import { useEffect, useState } from "react";
-import ChamadaApi from "../services/metodoRequest.jsx";
+import ChamadaApi from "../services/metodoRequest.js";
 
 
 const Container =styled.div`

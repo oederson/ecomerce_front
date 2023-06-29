@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { adicionarProduto } from "../redux/carrinhoRedux"
-import ChamadaApi from "../services/metodoRequest.jsx";
+import ChamadaApi from "../services/metodoRequest.js";
 
 const Container = styled.div`
 

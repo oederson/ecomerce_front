@@ -1,5 +1,5 @@
 import { loginFailure, loginStart, loginSucess } from "./userReducer";
-import ChamadaApi from "../services/metodoRequest.jsx";
+import ChamadaApi from "../services/metodoRequest.js";
 
 export const loginApi = async (dispatch, usuario) =>{
     dispatch(loginStart());
