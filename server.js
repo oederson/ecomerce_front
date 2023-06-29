@@ -1,5 +1,5 @@
 import { createProxyMiddleware } from 'http-proxy-middleware';
-const serve = require('serve');
+import serve from 'serve';
 
 const serveOptions = {
   port: process.env.PORT || 5000,
@@ -7,7 +7,7 @@ const serveOptions = {
 };
 
 const proxyOptions = {
-  target:  import.meta.env.VITE_API_URL, // Defina o destino do proxy (URL do servidor backend)
+  target: import.meta.env.VITE_API_URL, // Defina o destino do proxy (URL do servidor backend)
   changeOrigin: true,
   pathRewrite: {
     '^/api': '', // Remove o prefixo '/api' na solicitação
