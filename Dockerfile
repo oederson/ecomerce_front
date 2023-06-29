@@ -9,4 +9,4 @@ RUN apt-get update
 RUN apt-get install nginx -y
 COPY --from=build /app/dist /var/www/html/
 EXPOSE 5173:80
-ENTRYPOINT ["nginx","-g","daemon off;"]
+CMD ["nginx","-g","daemon off;"]
