@@ -1,5 +1,5 @@
 import axios from "axios";
-const bkeURI = import.meta.env.VITE_API_URL;
+const bkeURI =  "https://backend-production-2fa9.up.railway.app/" //import.meta.env.VITE_API_URL;
 
 const ChamadaApi = (token) => {
   
