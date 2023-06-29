@@ -1,18 +1,19 @@
 import axios from "axios";
+const bkeURI = import.meta.env.VITE_API_URL;
 
 const ChamadaApi = (token) => {
   
   const tipoResquisiçao = () =>{
     if(token){
         return axios.create({
-            baseURL: "/api",
+            baseURL: bkeURI,
             headers: {
               Authorization: token,
             },
           });
     }else{
         return axios.create({
-            baseURL: '/api',
+            baseURL: bkeURI,
         });
         }
   }
