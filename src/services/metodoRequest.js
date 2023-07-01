@@ -1,19 +1,18 @@
 import axios from "axios";
-const bkeURI =  'https://backend-production-2fa9.up.railway.app/'//"localhost:8080" //import.meta.env.VITE_API_URL;
 
 const ChamadaApi = (token) => {
   
   const tipoResquisiçao = () =>{
     if(token){
         return axios.create({
-            baseURL: bkeURI,
+            baseURL: "/api",
             headers: {
               Authorization: token,
             },
           });
     }else{
         return axios.create({
-            baseURL: bkeURI,
+            baseURL: "/api",
         });
         }
   }
