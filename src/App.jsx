@@ -6,7 +6,7 @@ import NavBar from "./componentes/NavBar";
 function App() {
   const localizacao = useLocation();
   const comportamentoNavBar = () => {
-    if (localizacao.pathname === "/login") {
+    if (localizacao.pathname === "/login" || localizacao.pathname === "/cadastrar") {
       return (
         <div className="container">
           <Anuncios />
@@ -24,11 +24,7 @@ function App() {
     }
   };
 
-  return <div className="container">
-  <Anuncios />
-  <NavBar />
-  <Outlet />
-</div>;
+  return (comportamentoNavBar())
 }
 
 export default App;

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-function AlguemLogado() {
+const  AlguemLogado = () => {
     const alguemLogado = useSelector(state => state.user.logado);
   return (alguemLogado)
 }

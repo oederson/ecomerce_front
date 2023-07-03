@@ -9,6 +9,7 @@ import DropDownMui from './DropDownMui/DropDownMui';
 import { saberSeEadm } from '../services/saberSeEadm';
 import AlguemLogado from '../services/AlguemLogado';
 import SaberSeEAdm from '../services/SaberSeEAdm';
+import BarraDeBusca from './BarraDeBusca';
 
 
 const Container = styled.div`
@@ -40,12 +41,7 @@ const Procura = styled.div`
     margin-left: 25px;
     padding: 5px;
     `;
-const Input = styled.input`
-    border: none;
-    flex: 1;
-    padding-left: 20px;
-    outline: none;
-    `;
+
 const InputContainer = styled.div`
     width: 500px;
     height: 40px;
@@ -101,21 +97,12 @@ font-weight: bold;
 
 const NavBar = () => {
     
-    const irPara = useNavigate(); 
+    
     const quantidade = useSelector(state => state.carrinho.quantidade);
-    const [searchQuery, setSearchQuery] = useState("");
+   
     const eAdm = SaberSeEAdm();
     const nomeDeUsuario = saberSeEadm(useSelector(state => state.user.currentUser), "nomeDeUsuario")
-    useEffect(() => { 
-        const handleSearch = () => {
-          if (searchQuery.length > 0 ) {
-            irPara(`/produtos/${searchQuery}`);
-          }
-          if (searchQuery.length === 0 ) {
-            irPara(`/`);
-          }};
-        handleSearch();
-        },[searchQuery]);
+    
     
     const oQueFazerNaBarraDeNagevacao = () => {
         if(AlguemLogado()){
@@ -127,9 +114,7 @@ const NavBar = () => {
                             <Centro>
                                 <Procura>
                                     <InputContainer>
-                                        <Input placeholder="O que esta procurando ?" 
-                                            value={searchQuery}
-                                            onChange={(e) => setSearchQuery(e.target.value)}/>
+                                       <BarraDeBusca/>
                                  
                                     </InputContainer>
                                 </Procura>
@@ -160,9 +145,7 @@ const NavBar = () => {
                     <Centro>
                         <Procura>
                             <InputContainer>
-                                <Input placeholder="O que esta procurando ?" 
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}/>              
+                            <BarraDeBusca/>
                                 </InputContainer>
                         </Procura>
                             <Icone>
