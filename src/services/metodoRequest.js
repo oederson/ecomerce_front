@@ -5,14 +5,14 @@ const ChamadaApi = (token) => {
   const tipoResquisiçao = () =>{
     if(token){
         return axios.create({
-            baseURL: "/api",
+            baseURL: "http://localhost:8080",
             headers: {
               Authorization: token,
             },
           });
     }else{
         return axios.create({
-            baseURL: "/api",
+            baseURL: "http://localhost:8080",
         });
         }
   }

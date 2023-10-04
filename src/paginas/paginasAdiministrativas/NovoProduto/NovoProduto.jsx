@@ -5,8 +5,6 @@ import ChamadaApi from "../../../services/metodoRequest.js";
 import PegaToken from "../../../services/PegaToken";
 import axios from "axios";
 
-
-
 const Container = styled.div`
     width: 100vw;
     height: 92.9vh;
@@ -57,7 +55,7 @@ const ParteCheckBox = styled.div`
 `;
 
 const NovoProduto = () => {
-  
+  const [categorias, setCategorias ] = useState([]);
   const [formData, setFormData] = useState(null);
   const token = PegaToken();
   const { id } = useParams();
@@ -149,6 +147,16 @@ const NovoProduto = () => {
       }
     };fetchProduto();
   }, [id]);
+  useEffect(()=>{
+    const getCategorias = async ()=>{
+      try{
+        const res = await ChamadaApi().get(`/categorias`);
+        setCategorias(res.data.content)
+        console.log(res)
+      }catch(err){}
+    };
+    getCategorias()
+  },[]);
 
   return (
     <Container className="containers">
@@ -178,38 +186,16 @@ const NovoProduto = () => {
         <ParteCheckBox>
         <label>
           <h3>Categorias:</h3>
-          
-          <label>
-            <input
-              
-              type="checkbox"
-              value="masculino"
-              onChange={(event) => checkboxMudou(event, "categoria")}
-              checked={produto.categoria.includes("masculino")}
-            />
-            Maculino
-          </label>
-          <br />
-          <label>
-            <input
-              type="checkbox"
-              value="feminino"
-              onChange={(event) => checkboxMudou(event, "categoria")}
-              checked={produto.categoria.includes("feminino")}
-            />
-            Feminina
-          </label>
-          <br />
-          <label>
-            <input
-              type="checkbox"
-              value="jeans"
-              onChange={(event) => checkboxMudou(event, "categoria")}
-              checked={produto.categoria.includes("jeans")}
-            />
-            Jeans
-          </label>
-          
+          {categorias.map(item=>(
+            <><input           type="checkbox"
+            value={item.nome}
+            onChange={(event) => checkboxMudou(event, "categoria")}
+            
+          />{item.nome}
+        <br />
+          </>
+            ))}
+
         </label>
         <br />
 
@@ -375,3 +361,35 @@ const NovoProduto = () => {
 };
 
 export default NovoProduto;
+
+/*<label>
+<input
+  
+  type="checkbox"
+  value="masculino"
+  onChange={(event) => checkboxMudou(event, "categoria")}
+  checked={produto.categoria.includes("masculino")}
+/>
+Maculino
+</label>
+<br />
+<label>
+<input
+  type="checkbox"
+  value="feminino"
+  onChange={(event) => checkboxMudou(event, "categoria")}
+  checked={produto.categoria.includes("feminino")}
+/>
+Feminina
+</label>
+<br />
+<label>
+<input
+  type="checkbox"
+  value="jeans"
+  onChange={(event) => checkboxMudou(event, "categoria")}
+  checked={produto.categoria.includes("jeans")}
+/>
+Jeans
+</label>*/
+

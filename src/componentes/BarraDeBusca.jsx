@@ -1,14 +1,46 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { Search } from '@mui/icons-material';
 
+const Container = styled.div`
+  display:flex;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  border: 3px solid teal;
+  align-items: center;
+`;
 const Input = styled.input`
     border: none;
-    flex: 1;
+    width: 95%;
+    height: 30px;
     padding-left: 20px;
     outline: none;
-    `;
+    ::placeholder {
+      
+     
+    font-size: 17px; 
+    color:teal;
+  }
+`;
 
+
+const Icone = styled.div`
+    
+   
+    height: 40px;
+    border-radius: 50%;
+    color: teal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 360px;
+    font-size: 40;
+    @media screen and (max-width: 1000px){
+      color: white;
+      }
+`;
 
 function BarraDeBusca() {
 
@@ -28,9 +60,12 @@ function BarraDeBusca() {
         handleSearch();
         },[searchQuery]);
   return (
-    <Input  placeholder="O que esta procurando ?" 
+    <Container>
+        <Input  placeholder="O que esta procurando ?" 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}/>
+        <Search style={{ color: 'teal' }} />
+    </Container>
   )
 }
 

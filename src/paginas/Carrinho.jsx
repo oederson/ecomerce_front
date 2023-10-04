@@ -8,7 +8,7 @@ import { limparCarrinhoo , removerProduto, aumentarQuantidade, diminuirQuantidad
 import { Link } from 'react-router-dom'
 
 const Container = styled.div`
-
+    
 `;
 const Wrapper = styled.div`
     padding: 20px;
@@ -47,6 +47,7 @@ const Info = styled.div`
 const Produto = styled.div`
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
 `;
 const ProdutoDetalhes = styled.div`
     flex: 2;
@@ -54,6 +55,8 @@ const ProdutoDetalhes = styled.div`
 `;
 const Image = styled.img`
     width: 200px;
+    height: 200px;
+    object-fit: cover;
 `;
 const Detalhes = styled.div`
     padding: 20px;
@@ -91,7 +94,7 @@ const ProdutoPreco = styled.div`
     font-weight: 200;
 `;
 const Hr = styled.hr`
-    background-color: #eee;
+    background-color: #0e0d0d;
     border: none;
     height: 1px;
 `;
@@ -190,7 +193,9 @@ const Carrinho = () => {
                                 <ProdutoSize><b>Tamanho :</b> {produto.tamanho} </ProdutoSize>
                                 <TopoBotao onClick={() => removerProdutoo(produto.id)}> Remover do carrinho </TopoBotao>
                             </Detalhes>
+                            
                         </ProdutoDetalhes>
+                        
                         <PrecoDetalhes>
                             <ProdutoQuantidadeContainer>
                                 <Remove onClick = {()=> handleQuantidade("inc", produto.id)}/>
@@ -199,7 +204,7 @@ const Carrinho = () => {
                             </ProdutoQuantidadeContainer>
                             <ProdutoPreco>R$ {produto.preco * produto.quantidade}</ProdutoPreco>
                         </PrecoDetalhes>
-                        <Hr/>
+                        
                     </Produto>))}
                 </Info>
                 <Resumo>

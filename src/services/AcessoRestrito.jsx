@@ -1,4 +1,3 @@
-import React from 'react'
 import AlguemLogado from './AlguemLogado'
 import SaberSeEAdm from './SaberSeEAdm'
 

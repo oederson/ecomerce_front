@@ -10,19 +10,24 @@ import { adicionarProduto } from "../redux/carrinhoRedux"
 import ChamadaApi from "../services/metodoRequest.js";
 
 const Container = styled.div`
-
+    width:100%;
 `;
 const Wrapper = styled.div`
     padding: 50px;
+    padding-left: 260px;
     display: flex;
-
+    @media screen and (max-width: 1000px){
+      padding-left: 100px;
+      }
 `;
 const ImgConteudo = styled.div`
     flex:1;
+
 `;
 const Image = styled.img`
     width: 100%;
-    height: 90vh;
+    height: 100%;
+    border-radius: 5px;
     object-fit: cover;
 
 `;

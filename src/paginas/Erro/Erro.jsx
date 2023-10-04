@@ -2,7 +2,7 @@ import React from 'react'
 
 const Erro = () => {
   return (
-    <div>Erro</div>
+    <div>404 Página nao existe</div>
   )
 }
 

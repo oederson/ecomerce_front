@@ -1,16 +1,12 @@
-import React, { useCallback, useEffect } from 'react'
-import Slider from '../componentes/Slider'
-import Categorias from '../componentes/Categorias'
+import Slider from '../componentes/Slider/Slider.jsx'
 import Produtos from '../componentes/Produtos'
 import Newsletter from '../componentes/Newsletter'
 import Rodape from '../componentes/Rodape'
 
-
 const Home = () => {
     
  return (
-    <div>
-        <Categorias/>
+    <div>        
         <Slider/>
         <Produtos />
         <Newsletter/>

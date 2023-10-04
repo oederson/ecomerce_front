@@ -116,6 +116,15 @@ export default function DropDownMui(props) {
             Usuarios
           </Link> 
         </MenuItem>}
+        {props.usuarioAdm &&         
+         <MenuItem onClick={handleClose}>
+        <ListItemIcon>
+            <Settings fontSize="small" />
+          </ListItemIcon>
+            <Link to="/adm/categorias">
+            Categorias
+          </Link> 
+        </MenuItem>}
          <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Logout fontSize="small" />

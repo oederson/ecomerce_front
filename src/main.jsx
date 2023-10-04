@@ -15,7 +15,11 @@ import Deslogar from './componentes/Deslogar/Deslogar.jsx';
 import ProdutoListaAdm from './paginas/paginasAdiministrativas/ProdutoLista/ProdutoLista.jsx';
 import NovoProduto from './paginas/paginasAdiministrativas/NovoProduto/NovoProduto.jsx';
 import UsuarioLista from './paginas/paginasAdiministrativas/Usuarios/UsuariosLista.jsx';
+import CategoriasLista from './paginas/paginasAdiministrativas/Categorias/CategoriasLista.jsx';
 import AcessoRestrito from './services/AcessoRestrito.jsx';
+import PaginaPagamento from './componentes/PaginaPagamento.jsx';
+import ProductPage from './paginas/PAGTESTE/ProdutoUnico.jsx';
+import CadastroCategoria from './paginas/paginasAdiministrativas/Categorias/CatasdroCategoria.jsx';
 
 const router = createBrowserRouter([
     {
@@ -73,6 +77,18 @@ const router = createBrowserRouter([
         {
           path: 'adm/usuario',
           element:  <AcessoRestrito pagina={<UsuarioLista />} />,
+        },
+        {
+          path: 'adm/categorias',
+          element:  <AcessoRestrito pagina={<CategoriasLista />} />,
+        },
+        {
+          path: 'adm/cadastrocategoria',
+          element: <AcessoRestrito pagina={<CadastroCategoria />}/>,
+        },
+        {
+          path: 'adm/cadastrocategoria/:id',
+          element: <AcessoRestrito pagina={<CadastroCategoria />}/>,
         },
       ],
     },

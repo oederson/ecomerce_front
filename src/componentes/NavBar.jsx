@@ -1,60 +1,66 @@
 import { Search,  ShoppingCartOutlined } from '@mui/icons-material';
 import { Badge } from '@mui/material';
-import React, { useEffect, useState } from 'react';
 import styled  from 'styled-components';
-import { mobile } from '../responsive';
 import { useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DropDownMui from './DropDownMui/DropDownMui';
 import { saberSeEadm } from '../services/saberSeEadm';
 import AlguemLogado from '../services/AlguemLogado';
 import SaberSeEAdm from '../services/SaberSeEAdm';
 import BarraDeBusca from './BarraDeBusca';
+import Categorias from './Categorias';
 
 
 const Container = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 50px;
-    ${mobile({ height: "50px"})}
+@media screen and (max-width: 1000px){
+      width: 100%;
+}
+    
 `;
 const Wrapper = styled.div`
+    width: 100%;
     padding: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    ${mobile({ padding : "10px 0px"})}
+    
 `;
 const Esquerda = styled.div`
     width: 33.3%;
+    height: 30px;
     display: flex;
     align-items: center;
+    margin-top: 32px;
+    margin-bottom: 0px;
     `;
 const Linguagem = styled.span`
     font-size: 14px;
     cursor: pointer;
-    ${mobile({ display : "none"})}
     `;
 const Procura = styled.div`
-    width: 50vh;
+    width: 50%;
+    margin-top: 5px;
     margin-left: 25px;
     padding: 5px;
     `;
-
 const InputContainer = styled.div`
-    width: 500px;
+    width: 200%;
     height: 40px;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-right:200px;
 
     border: 2px solid teal;
 `;
 const Icone = styled.div`
     position: absolute;
-    width: 40px;
+
     height: 40px;
     border-radius: 50%;
     color: teal;
@@ -63,16 +69,21 @@ const Icone = styled.div`
     justify-content: center;
     margin-left: 460px;
     font-size: 40;
+    @media screen and (max-width: 1000px){
+      color: white;
+      }
 `;
 const Centro = styled.div`
     display: flex;
-    width: 33.3vh;
+    width: 33.3%;
     text-align: center;
     align-items: center;
     justify-content: center;
     `;
 const Logo = styled.h1`
+    color: #008080;
     font-weight: bold;
+    text-shadow: 1px 2px 2px #0a0a0a;
     `;
 const Direita = styled.div`
     width: 33.3%;
@@ -88,11 +99,21 @@ const ItemMenu = styled.div`
     margin-left: 25px;
     `;
 const Titulo = styled.h3`
-color: teal;
-
-font-weight: bold;
-   text-shadow: 0.5px 1px 0.5px #014d1a;
-
+    color: teal;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0.5px 1px 0.5px #014d1a;
+    @media screen and (max-width: 750px){
+        font-size:14px;
+      }
+`;
+const Logomarca = styled.img`
+    width: 300px;
+    height: 90px;
+    @media screen and (max-width: 1000px){
+      width: 200px;
+      height: 55px;
+      }
 `;
 
 const NavBar = () => {
@@ -109,18 +130,12 @@ const NavBar = () => {
             return(<Container>
                         <Wrapper>
                            <Esquerda>
-                             <Logo>Sua Logomarca aqui!</Logo>
+                            <Link to= "/" style={{ textDecoration: 'none' }}>
+                            <Logomarca src='/LOGOMARCATESTE.png' alt='LOGO'/>
+                             </Link>
                            </Esquerda>
-                            <Centro>
-                                <Procura>
-                                    <InputContainer>
-                                       <BarraDeBusca/>
-                                 
-                                    </InputContainer>
-                                </Procura>
-                                <Icone>
-                                    <Search />
-                                </Icone>
+                            <Centro>                                
+                                <BarraDeBusca/>                               
                             </Centro>
                             <Direita>
                                 <ItemMenu>
@@ -134,24 +149,21 @@ const NavBar = () => {
                                     <DropDownMui nomeDeUsuario={nomeDeUsuario} usuarioAdm={eAdm} />
                                 </div> 
                             </Direita>
-                        </Wrapper> 
+                        </Wrapper>
+                        <Categorias/> 
+                        <hr/>  
                     </Container>)
             }else{
     return(<Container>
                 <Wrapper>
                     <Esquerda>
-                        <Logo>Sua Logomarca aqui!</Logo>                            
+                        <Link to="/" style={{ textDecoration: 'none' }}>
+                        <Logomarca src='/LOGOMARCATESTE.png' alt='LOGO'/>
+                        </Link>                           
                 </Esquerda>
-                    <Centro>
-                        <Procura>
-                            <InputContainer>
-                            <BarraDeBusca/>
-                                </InputContainer>
-                        </Procura>
-                            <Icone>
-                                <Search />
-                            </Icone>
-                        </Centro>
+                    <Centro>                       
+                        <BarraDeBusca/>                    
+                    </Centro>
                     <Direita>
                         <ItemMenu>
                             <Link to="/login" style={{ textDecoration: 'none' }}>
@@ -171,7 +183,9 @@ const NavBar = () => {
                             </Link>
                         </ItemMenu>
                     </Direita>
-                </Wrapper> 
+                </Wrapper>
+                <Categorias/>
+                <hr/>  
             </Container>)
         }
 }

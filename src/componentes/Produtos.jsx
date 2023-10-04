@@ -4,13 +4,28 @@ import { useEffect, useState } from "react";
 import ChamadaApi from "../services/metodoRequest.js";
 
 const Container =styled.div`
-    padding: 10px;
+    width:100%;
+    padding: 15px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    
-    justify-content: space-between;
-    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin:0 auto;
+//    justify-content: space-between;
+//    align-items: center;
     gap: 15px;
+//    flex-wrap: wrap;
+    max-width: 1480px;
+    @media screen and (max-width: 1400px){
+    grid-template-columns: 1fr 1fr;
+    width:100%;
+    padding: 10px;
+    gap:10px;
+    }
+    @media screen and (max-width: 950px){
+    grid-template-columns: 1fr;
+    width:50%;
+    padding: 10px;
+    }
+    
 `;
 const ImageWrapper = styled.div`
   flex: 1 0 50%;

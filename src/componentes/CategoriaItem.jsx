@@ -3,11 +3,13 @@ import styled from "styled-components"
 
 const Container = styled.div`
     display:flex;
-    flex: 1;
-    margin: 0px;
+    width: 20%;
+    margin-top: 0px;
+    margin-left: 10px;
     height: 40px;
-    position: relative;
+
     justify-content: center;
+    margin-bottom: -10px;
 `;
 const Image = styled.img`
     width: 100%;
@@ -25,11 +27,15 @@ const Info = styled.div`
     align-items: center;
     justify-content: center;
 `;
-const Titulo = styled.h2`
+const Titulo = styled.h3`
     color: teal;
-    margin-bottom: 20px;
+    text-transform: capitalize;
+    font-size: 22px;
     font-weight: bold;
  //   text-shadow: 2px 2px 0px #000000;
+ @media screen and (max-width: 1000px){
+    font-size:14px;
+      }
 
 `;
 const Botao = styled.button`
@@ -44,12 +50,8 @@ const Botao = styled.button`
 const CategoriaItem = ({item}) => {
   return (
     <Container>
-        <Link to={`/produtos/categoria/${item.categoria}`} style={{ textDecoration: 'none' }}>
-           
-            
-                <Titulo>{item.titulo}</Titulo>
-                
-            
+        <Link to={`/produtos/categoria/${item.nome}`} style={{ textDecoration: 'none' }}>
+           <Titulo>{item.nome}</Titulo>
         </Link>
     </Container>
   )

@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 97.5vh;
     background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("/login.jpg") center;
     background-size:cover;
     display: flex;
@@ -17,7 +17,9 @@ const Wrapper = styled.div`
     width: 25%;
     padding: 20px;
     background-color: white;
-
+    @media screen and (max-width: 1000px){
+      width: 50%;
+      }
 `;
 const Titulo = styled.h1`
     font-size: 24px;
