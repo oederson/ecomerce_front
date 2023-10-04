@@ -1,0 +1,1 @@
+# Projeto de uma loja com login e login de administrador, ainda em desenvolvimento
